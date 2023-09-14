@@ -1,5 +1,7 @@
 package gui;
 
+
+import semana_03.Factura;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -69,13 +71,34 @@ public class Problema_3_1 extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnProcesar(ActionEvent arg0) {
-
+		Factura f1 = new Factura("12345","SKYNET",145,38.9);
+		listado(f1);
+		Factura f2 = new Factura("7890", "Umbrella");
+		listado(f2);
+		Factura f3 = new Factura();
+		listado(f3);
+		
+		imprimir("------------------------------------");
+		imprimir("cantidad de facturas :  " + Factura.getCantidad());
+		imprimir("suma de importes     :  " + Factura.getSuma());
+		imprimir("entidad factura      :  " + Factura.entidad);
+		imprimir("------------------------------------");
+		imprimir();
 	}
-	//  MÈtodos tipo void (sin par·metros)
+	//  M√©todos tipo void (sin par√°metros)
 	void imprimir() {
 		imprimir("");
 	}
-	//  MÈtodos tipo void (con par·metros)
+	void listado(Factura x) {
+		imprimir("DirMem   :  " + x);
+		imprimir("ruc      :  " + x.getRuc());
+		imprimir("empresa  :  " + x.getEmpresa());
+		imprimir("unidades :  " + x.getUni());
+		imprimir("precio   :  " + x.getPre());
+		imprimir("importe  :  " + x.importeFacturado());
+		imprimir();
+	}
+	//  M√©todos tipo void (con par√°metros)
 	void imprimir(String s) {
 		txtS.append(s + "\n");
 	}	
